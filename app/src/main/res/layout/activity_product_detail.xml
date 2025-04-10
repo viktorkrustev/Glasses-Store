@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:ignore="ExtraText">
+
+    <!-- Toolbar (за заглавие и стрелка за връщане назад) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Детайли за продукта"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:padding="16dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Стрелка за връщане назад -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_revert"
+        android:contentDescription="Back"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="start"
+        android:onClick="onBackPressed"/>
+
+    <!-- Секция с изображение на продукта -->
+    <ImageView
+        android:id="@+id/imageViewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Product Image" />
+
+    <!-- Име на продукта -->
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Продуктово име"
+        android:textSize="22sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Цена на продукта -->
+    <TextView
+        android:id="@+id/textPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Цена: 0.00 лв"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Описание на продукта -->
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Описание на продукта"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Производител на продукта -->
+    <TextView
+        android:id="@+id/textManufacturer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Производител: някой"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Рейтинг на продукта -->
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="5"
+        android:stepSize="1"
+        android:isIndicator="false"/>
+
+    <!-- Поле за въвеждане на рецензия -->
+    <EditText
+        android:id="@+id/editReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Напишете вашето мнение..."
+        android:inputType="textMultiLine"
+        android:layout_marginBottom="16dp"
+        android:gravity="top|start"
+        android:lines="4"
+        android:maxLines="5"
+        android:padding="12dp"/>
+
+    <!-- Бутон за изпращане на рецензия -->
+    <Button
+        android:id="@+id/btnSubmitReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Добави отзив"
+        android:textColor="#ffffff"
+
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Контейнер за рецензии -->
+    <LinearLayout
+        android:id="@+id/reviewsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Бутон за редактиране (видим само за администратор) -->
+    <Button
+        android:id="@+id/btnEditProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Редактирай"
+        android:textColor="#ffffff"
+
+        android:visibility="gone"
+        android:layout_marginBottom="16dp"/>
+
+</LinearLayout>
