@@ -14,8 +14,10 @@ public interface OrderDao {
     List<Order> getAllOrders();
 
     @Insert
-    void insert(Order order);
+    long insert(Order order);
 
     @Query("SELECT * FROM orders WHERE userId = :userId")
     List<Order> getOrdersByUserId(int userId);
+    @Query("SELECT id FROM orders  ORDER BY id DESC LIMIT 1")
+    int getLastOrderId();
 }

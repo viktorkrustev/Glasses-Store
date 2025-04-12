@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
 
@@ -35,13 +36,19 @@ public class ProductListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ProductAdapter productAdapter;
-    private Button btnFilter, btnSort;
+    private Button btnFilter, btnSort, btnNext, btnPrevious;
     private EditText searchEditText;
+    private TextView pageIndicator;
 
     private AppDatabase db;
     private List<Glasses> allProducts = new ArrayList<>();
     private List<Glasses> filteredProducts = new ArrayList<>();
+    private List<Glasses> currentPageProducts = new ArrayList<>();
+
     private boolean isFiltered = false;
+    private int currentPage = 1;
+    private int itemsPerPage = 6;
+    private int totalPages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,26 +60,43 @@ public class ProductListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewProducts);
         btnFilter = findViewById(R.id.btnFilter);
         btnSort = findViewById(R.id.btnSort);
+        btnNext = findViewById(R.id.btnNext);
+        btnPrevious = findViewById(R.id.btnPrevious);
+        pageIndicator = findViewById(R.id.pageIndicator);
         searchEditText = findViewById(R.id.searchEditText);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        productAdapter = new ProductAdapter(this, new ArrayList<>());
+        productAdapter = new ProductAdapter(this, currentPageProducts);
         recyclerView.setAdapter(productAdapter);
 
         loadProducts();
+
         ImageButton btnBack = findViewById(R.id.btnBack);
         ImageButton btnCart = findViewById(R.id.btnCart);
 
-        btnBack.setOnClickListener(v -> finish()); // Затваря текущия екран и се връща назад
+        btnBack.setOnClickListener(v -> finish());
 
         btnCart.setOnClickListener(v -> {
             Intent intent = new Intent(ProductListActivity.this, CartActivity.class);
             startActivity(intent);
         });
 
-
         btnFilter.setOnClickListener(v -> showFilterDialog());
         btnSort.setOnClickListener(v -> showSortDialog());
+
+        btnNext.setOnClickListener(v -> {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateProductsPage();
+            }
+        });
+
+        btnPrevious.setOnClickListener(v -> {
+            if (currentPage > 1) {
+                currentPage--;
+                updateProductsPage();
+            }
+        });
 
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -86,13 +110,8 @@ public class ProductListActivity extends AppCompatActivity {
     private void loadProducts() {
         new Thread(() -> {
             try {
-                allProducts = db.glassesDao().getAll(); // Вземаме всички продукти от базата
+                allProducts = db.glassesDao().getAll();
                 runOnUiThread(() -> {
-                    if (allProducts != null && !allProducts.isEmpty()) {
-                        Log.d("ProductListActivity", "Заредени продукти: " + allProducts.size());
-                    } else {
-                        Log.d("ProductListActivity", "Няма продукти в базата.");
-                    }
                     updateProductsPage();
                 });
             } catch (Exception e) {
@@ -103,16 +122,26 @@ public class ProductListActivity extends AppCompatActivity {
         }).start();
     }
 
-
     private void updateProductsPage() {
-        // Проверяваме дали има филтрирани продукти, ако не - показваме всички
         List<Glasses> source = isFiltered ? filteredProducts : allProducts;
         if (source == null || source.isEmpty()) return;
 
-        productAdapter.updateData(source);
+        totalPages = (int) Math.ceil((double) source.size() / itemsPerPage);
+        if (currentPage > totalPages) currentPage = totalPages;
+        if (currentPage < 1) currentPage = 1;
+
+        int start = (currentPage - 1) * itemsPerPage;
+        int end = Math.min(start + itemsPerPage, source.size());
+
+        currentPageProducts.clear();
+        currentPageProducts.addAll(source.subList(start, end));
+        productAdapter.notifyDataSetChanged();
+
+        pageIndicator.setText("Страница " + currentPage);
+        btnPrevious.setEnabled(currentPage > 1);
+        btnNext.setEnabled(currentPage < totalPages);
     }
 
-    // В showFilterDialog() можеш да зададеш начални стойности
     private void showFilterDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Филтриране на продукти");
@@ -125,17 +154,16 @@ public class ProductListActivity extends AppCompatActivity {
         ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
-        categorySpinner.setSelection(0); // Начална стойност на категория (например Мъжки)
 
         Spinner formSpinner = new Spinner(this);
         List<String> forms = new ArrayList<>();
         forms.add("Авиатор");
         forms.add("Квадратни");
         forms.add("Кръгли");
+        forms.add("Диоптрични");
         ArrayAdapter<String> formAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, forms);
         formAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         formSpinner.setAdapter(formAdapter);
-        formSpinner.setSelection(0); // Начална стойност на форма (например Авиатор)
 
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -159,7 +187,6 @@ public class ProductListActivity extends AppCompatActivity {
         builder.setNegativeButton("Отказ", (dialog, which) -> dialog.dismiss());
         builder.show();
     }
-
 
     private void filterProducts(String category, String form) {
         filteredProducts.clear();
@@ -185,6 +212,7 @@ public class ProductListActivity extends AppCompatActivity {
         }
 
         isFiltered = true;
+        currentPage = 1;
         updateProductsPage();
     }
 
@@ -196,6 +224,7 @@ public class ProductListActivity extends AppCompatActivity {
             }
         }
         isFiltered = true;
+        currentPage = 1;
         updateProductsPage();
     }
 
@@ -246,6 +275,7 @@ public class ProductListActivity extends AppCompatActivity {
                 break;
         }
 
+        currentPage = 1;
         updateProductsPage();
     }
 }

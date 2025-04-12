@@ -1,7 +1,6 @@
 package com.example.o4ilastore.activities;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.o4ilastore.R;
@@ -30,8 +28,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     private ImageView imageView;
     private TextView nameView, priceView, descriptionView, manufacturerView;
     private EditText reviewInput;
-    private Button btnSubmitReview;
-    private Button btnEditProduct;
+    private Button btnSubmitReview, btnEditProduct, btnAddToCart;
     private LinearLayout reviewsContainer;
     private RatingBar ratingBar;
 
@@ -61,12 +58,12 @@ public class ProductDetailActivity extends AppCompatActivity {
         reviewsContainer = findViewById(R.id.reviewsContainer);
         ratingBar = findViewById(R.id.ratingBar);
         btnEditProduct = findViewById(R.id.btnEditProduct);
+        btnAddToCart = findViewById(R.id.btnAddToCart); // ⬅️ Нов бутон
 
         db = AppDatabase.getInstance(this);
         productId = getIntent().getIntExtra("product_id", -1);
-        isAdmin = getIntent().getBooleanExtra("admin", false); // получаване на админ флаг
+        isAdmin = getIntent().getBooleanExtra("admin", false);
 
-        // Показваме бутон за редактиране, ако е администратор
         if (isAdmin) {
             btnEditProduct.setVisibility(View.VISIBLE);
         }
@@ -82,24 +79,21 @@ public class ProductDetailActivity extends AppCompatActivity {
             }
         });
 
-        btnEditProduct.setOnClickListener(v -> {
-            enableEditing();
-        });
+        btnEditProduct.setOnClickListener(v -> enableEditing());
+
+        btnAddToCart.setOnClickListener(v -> addToCart()); // ⬅️ Слушател за бутона
     }
 
     public void onBackPressed(View view) {
-        finish(); // Връщане назад
+        finish();
     }
 
-
-    // Разрешаване на редактиране на полета за администраторите
     private void enableEditing() {
         nameView.setOnClickListener(v -> editField("name", nameView.getText().toString()));
         priceView.setOnClickListener(v -> editField("price", priceView.getText().toString()));
         descriptionView.setOnClickListener(v -> editField("description", descriptionView.getText().toString()));
     }
 
-    // Функция за редактиране на поле
     private void editField(String fieldName, String currentValue) {
         EditText input = new EditText(this);
         input.setText(currentValue);
@@ -138,7 +132,6 @@ public class ProductDetailActivity extends AppCompatActivity {
                 .show();
     }
 
-    // Зареждане на детайлите за продукта
     private void loadProductDetails() {
         new Thread(() -> {
             Glasses product = db.glassesDao().getById(productId);
@@ -154,11 +147,15 @@ public class ProductDetailActivity extends AppCompatActivity {
                 Glide.with(this)
                         .load(assetPath)
                         .into(imageView);
+
+                if (product.getInCart() == 1) {
+                    btnAddToCart.setEnabled(false);
+                    btnAddToCart.setText("Вече в количката");
+                }
             });
         }).start();
     }
 
-    // Зареждане на рецензии за продукта
     private void loadReviews() {
         new Thread(() -> {
             List<Review> reviews = db.reviewDao().getForProduct(productId);
@@ -175,7 +172,6 @@ public class ProductDetailActivity extends AppCompatActivity {
         }).start();
     }
 
-    // Добавяне на рецензия
     private void addReview(String comment, int rating) {
         Review review = new Review(productId, comment, rating);
         new Thread(() -> {
@@ -189,10 +185,24 @@ public class ProductDetailActivity extends AppCompatActivity {
         }).start();
     }
 
+    private void addToCart() {
+        new Thread(() -> {
+            Glasses product = db.glassesDao().getById(productId);
+            product.setInCart(1); // ⬅️ Маркира като в количката
+            db.glassesDao().insert(product);
+
+            runOnUiThread(() -> {
+                Toast.makeText(this, "Продуктът е добавен в количката", Toast.LENGTH_SHORT).show();
+                btnAddToCart.setEnabled(false);
+                btnAddToCart.setText("Вече в количката");
+            });
+        }).start();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish(); // Връщане назад
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

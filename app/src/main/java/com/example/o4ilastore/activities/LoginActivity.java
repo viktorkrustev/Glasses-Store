@@ -52,14 +52,21 @@ public class LoginActivity extends AppCompatActivity {
                         runOnUiThread(() -> {
                             Toast.makeText(this, "Добре дошъл, " + user.name + "!", Toast.LENGTH_SHORT).show();
 
+                            // 👉 Записваме userId в SharedPreferences
+                            getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
+                                    .edit()
+                                    .putInt("userId", user.getId())
+                                    .apply();
+
                             // Изпращаме резултат в HomeActivity, за да актуализираме интерфейса
                             Intent resultIntent = new Intent();
                             resultIntent.putExtra("isUserLoggedIn", true);
-                            resultIntent.putExtra("userId", user.getId()); // 👉 Предаваме userId!
+                            resultIntent.putExtra("userId", user.getId());
                             setResult(RESULT_OK, resultIntent);
-                            finish();
 
+                            finish();
                         });
+
                     } else {
                         // Ако няма съвпадение в базата данни
                         runOnUiThread(() -> {

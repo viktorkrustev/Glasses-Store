@@ -5,13 +5,23 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/cartTitle"
-        android:text="Вашата количка"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E4C89B52"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вашата количка"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:padding="16dp"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <!-- RecyclerView for cart items -->
     <androidx.recyclerview.widget.RecyclerView
@@ -34,5 +44,7 @@
         android:id="@+id/buyButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:backgroundTint="#3E4E58"
         android:text="Купи"/>
 </LinearLayout>

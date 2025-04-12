@@ -48,14 +48,12 @@ public class ProfileActivity extends AppCompatActivity {
         ordersList = findViewById(R.id.ordersList);
         profileImage = findViewById(R.id.profileImage);
 
-        // Заявка за разрешение, ако е необходимо (Android 6+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                         != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
         }
 
-        // Получаване на userId
         userId = getIntent().getIntExtra("userId", -1);
         if (userId == -1) {
             SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
@@ -64,13 +62,11 @@ public class ProfileActivity extends AppCompatActivity {
 
         Log.d("ProfileActivity", "User ID: " + userId);
 
-        // Зареждане на профилна снимка с Glide
         String savedUri = getSharedPreferences("MyAppPrefs", MODE_PRIVATE).getString("profileImageUri", null);
         if (savedUri != null) {
             Glide.with(this).load(Uri.parse(savedUri)).into(profileImage);
         }
 
-        // Смяна на снимка
         profileImage.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType("image/*");
@@ -124,22 +120,26 @@ public class ProfileActivity extends AppCompatActivity {
                                 item.setOrientation(LinearLayout.VERTICAL);
                                 item.setPadding(0, 0, 0, 32);
 
-                                // Продукт
                                 TextView name = new TextView(ProfileActivity.this);
                                 name.setText("Продукт: " + glasses.getName());
                                 name.setTextSize(16f);
                                 item.addView(name);
 
-                                // Снимка
                                 if (glasses.getImageUrl() != null && !glasses.getImageUrl().isEmpty()) {
                                     ImageView image = new ImageView(ProfileActivity.this);
                                     image.setLayoutParams(new LinearLayout.LayoutParams(300, 300));
                                     image.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                                    Glide.with(ProfileActivity.this).load(glasses.getImageUrl()).into(image);
+
+                                    // Проверка дали imageUrl е asset път
+                                    String imageUrl = glasses.getImageUrl();
+                                    if (!imageUrl.startsWith("http")) {
+                                        imageUrl = "file:///android_asset/" + imageUrl;
+                                    }
+
+                                    Glide.with(ProfileActivity.this).load(imageUrl).into(image);
                                     item.addView(image);
                                 }
 
-                                // Дата
                                 TextView date = new TextView(ProfileActivity.this);
                                 date.setText("Дата на поръчка: " + (order.date != null ? order.date : "неизвестна"));
                                 item.addView(date);

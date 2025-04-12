@@ -21,6 +21,7 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#E4FFFFFF"
             android:src="@drawable/ic_menu_back" />
 
         <!-- Заглавие на екрана -->
@@ -39,6 +40,7 @@
         <!-- Иконка за количката в дясно -->
         <ImageButton
             android:id="@+id/btnCart"
+            android:background="#E4FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_cart" /> <!-- Променено на правилното име на иконата -->
@@ -67,6 +69,8 @@
         <Button
             android:id="@+id/btnSort"
             android:text="Сортирай"
+            android:textColor="#ffffff"
+            android:background="#E4C89B52"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -75,6 +79,8 @@
             android:text="Филтрирай"
             android:layout_width="wrap_content"
             android:layout_marginStart="8dp"
+            android:textColor="#ffffff"
+            android:background="#E4C89B52"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -98,6 +104,8 @@
         <Button
             android:id="@+id/btnPrevious"
             android:text="◀ Назад"
+            android:textColor="#000000"
+            android:background="#FAF3E6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false" />
@@ -117,6 +125,8 @@
         <Button
             android:id="@+id/btnNext"
             android:text="Напред ▶"
+            android:textColor="#000000"
+            android:background="#FAF3E6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
