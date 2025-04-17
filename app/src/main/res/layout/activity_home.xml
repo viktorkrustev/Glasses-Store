@@ -1,0 +1,173 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="24dp">
+
+        <!-- Custom Toolbar -->
+
+        <!-- Hero Section with Background Image -->
+
+        <LinearLayout
+            android:layout_width="401dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="#3E4E58"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="NOIR"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/headerImage"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/photo1"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_corners" />
+
+        <!-- Navigation Buttons -->
+        <LinearLayout
+            android:id="@+id/navigationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/btnProducts"
+                style="@style/CustomButton"
+                android:background="#3E4E58"
+                android:layout_weight="1"
+                android:text="Продукти" />
+
+            <Button
+                android:id="@+id/btnProfile"
+                android:background="#3E4E58"
+                style="@style/CustomButton"
+                android:layout_weight="1"
+                android:text="Профил" />
+
+            <Button
+                android:id="@+id/btnAbout"
+                android:background="#3E4E58"
+                style="@style/CustomButton"
+                android:layout_weight="1"
+                android:text="За нас" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:background="#F44336"
+                style="@style/CustomButton"
+                android:layout_weight="1"
+                android:text="Изход"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- Welcome Message (visible after successful login) -->
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Добре дошли!"
+            android:textSize="18sp"
+            android:textColor="#2A2A2A"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Auth Section (with overlay effect) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/background"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_corners" />
+
+            <!-- Black Overlay for Contrast -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#B3BCBCBC" />
+
+            <!-- Auth Buttons -->
+            <LinearLayout
+                android:id="@+id/authLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="16dp"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    style="@style/CustomButton"
+                    android:background="#EF990D"
+                    android:layout_weight="1"
+                    android:text="Вход" />
+
+                <Button
+                    android:id="@+id/btnRegister"
+                    style="@style/CustomButton"
+                    android:layout_weight="1"
+                    android:background="#EF990D"
+                    android:text="Регистрация"
+                    android:layout_marginStart="16dp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Promotional Text Between Images -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Открий своя стил с нашите модерни очила. Качество, комфорт и дизайн на едно място!"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Bottom Image -->
+        <ImageView
+            android:id="@+id/bottomImage2"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/img"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rounded_corners" />
+
+    </LinearLayout>
+</ScrollView>
+
