@@ -18,6 +18,7 @@
     <string name="register_text">Нямаш акаунт? Регистрирай се</string>
     <string name="login_title">Вход</string>
     <string name="register_se">Регистрирай се</string>
+    <string name="my_profile">Моят профил</string>
 
     <!-- UI Text -->
     <string name="welcome">Добре дошъл!</string>
@@ -31,5 +32,7 @@
     <!-- Cart -->
     <string name="cart">Количка</string>
     <string name="total">Общо:</string>
+    <string name="cart_history">История на поръчките</string>
+
 
 </resources>

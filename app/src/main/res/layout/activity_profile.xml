@@ -1,103 +1,107 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
-    android:padding="24dp">
+    android:background="@drawable/background_profile_activity"
+    android:fillViewport="true">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:layout_height="wrap_content">
 
-        <!-- Профилно заглавие -->
-        <TextView
-            android:id="@+id/profileTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Моят Профил"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="#1C1C1E"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="24dp"
-            android:fontFamily="sans-serif-medium" />
-
-        <!-- Профилна снимка с кръгъл фон -->
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/profile"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/circle_background"
-            android:padding="4dp" />
-
-        <!-- Данни за потребителя -->
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Име: Иван Иванов"
-            android:textSize="18sp"
-            android:textColor="#2A2A2A"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="sans-serif" />
-
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Имейл: ivan@example.com"
-            android:textSize="16sp"
-            android:textColor="#555555"
-            android:layout_marginBottom="24dp"
-            android:fontFamily="sans-serif" />
-
-        <!-- Разделител -->
+        <!-- Semi-transparent black overlay -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#DDDDDD"
-            android:layout_marginBottom="16dp" />
+            android:layout_height="match_parent"
+            android:background="#99000000" />
 
-        <!-- Поръчки заглавие -->
-        <TextView
-            android:id="@+id/tvOrders"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="История на поръчки"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#1C1C1E"
-            android:layout_marginBottom="12dp"
-            android:fontFamily="sans-serif-medium" />
-
-        <!-- Контейнер за поръчки -->
         <LinearLayout
-            android:id="@+id/ordersList"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="?android:dividerHorizontal"
-            android:showDividers="middle"
-            android:dividerPadding="8dp" />
+            android:gravity="center_horizontal"
+            android:padding="24dp">
 
-        <!-- Бутон за изход -->
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Изход"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#FF3B30"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            android:padding="12dp"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif-medium"
-            android:background="@drawable/rounded_button" />
+            <!-- Heading -->
+            <TextView
+                android:id="@+id/profileTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_profile"
+                android:textSize="36sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/rubik_glitch_regular"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="24dp" />
 
-    </LinearLayout>
+            <!-- Content -->
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp"
+                android:layout_gravity="start"
+                android:gravity="start"
+                android:fontFamily="@font/rubik_glitch_regular" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_hint"
+                android:textSize="19sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginBottom="24dp"
+                android:layout_gravity="start"
+                android:gravity="start"
+                android:fontFamily="@font/rubik_glitch_regular" />
+
+            <!-- Separator -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="16dp" />
+
+            <!-- History -->
+            <TextView
+                android:id="@+id/tvOrders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cart_history"
+                android:textSize="19sp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/rubik_glitch_regular" />
+
+            <!-- Orders -->
+            <LinearLayout
+                android:id="@+id/ordersList"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="?android:dividerHorizontal"
+                android:showDividers="middle"
+                android:dividerPadding="8dp" />
+
+            <!-- Exit button -->
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                style="@style/MonoButton.Beautiful"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="370dp"
+                android:layout_marginBottom="16dp"
+                android:minWidth="120dp"
+                android:backgroundTint="#444444"
+                android:textColor="#FFFFFF" />
+
+
+        </LinearLayout>
+    </FrameLayout>
 </ScrollView>
