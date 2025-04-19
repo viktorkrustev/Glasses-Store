@@ -16,7 +16,7 @@
     <string name="email_hint">Имейл:</string>
     <string name="password_hint">Парола:</string>
     <string name="register_text">Нямаш акаунт? Регистрирай се</string>
-    <string name="login_title">Влез в профила си</string>
+    <string name="login_title">Вход</string>
     <string name="register_se">Регистрирай се</string>
 
     <!-- UI Text -->
