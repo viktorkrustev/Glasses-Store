@@ -44,25 +44,29 @@ android {
 }
 
 dependencies {
-    implementation ("com.google.android.gms:play-services-location:18.0.0")
+    implementation (libs.play.services.location)
 
     // AndroidX & Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.recyclerview)
-    implementation("androidx.cardview:cardview:1.0.0") // ✅ Добавено CardView
+    implementation(libs.androidx.cardview) // ✅ Добавено CardView
 
     // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.common)
     implementation(libs.material)
+    implementation(libs.gms.play.services.maps)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.play.services.mlkit.face.detection)
+    implementation(libs.play.services.vision)
     annotationProcessor(libs.androidx.room.compiler)
 
     // Glide for loading images
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
-    implementation("org.osmdroid:osmdroid-android:6.1.16")
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+    implementation(libs.osmdroid.android.v6116)
 
 
     // Compose
@@ -87,4 +91,23 @@ dependencies {
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+
+    implementation (libs.androidx.camera.core)
+    implementation(libs.androidx.camera.lifecycle)
+
+    val camerax_version = "1.3.0"
+
+    implementation(libs.androidx.camera.core.v130)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle.v130)
+    implementation(libs.androidx.camera.view.v130)
+    implementation(libs.androidx.camera.extensions.v130)
+
+
+
+
 }
+
+

@@ -1,6 +1,7 @@
 package com.example.o4ilastore.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -82,6 +83,19 @@ public class ProductDetailActivity extends AppCompatActivity {
         btnEditProduct.setOnClickListener(v -> enableEditing());
 
         btnAddToCart.setOnClickListener(v -> addToCart());
+
+        int productId = getIntent().getIntExtra("product_id", -1);
+
+        Button btnTryOn = findViewById(R.id.btnTryOn);
+
+        btnTryOn.setOnClickListener(v -> {
+            Intent intent = new Intent(ProductDetailActivity.this, TryOnActivity.class);
+            intent.putExtra("product_id", productId);  // Изпрати ID-то нататък
+            startActivity(intent);
+        });
+
+
+
     }
 
     public void onBackPressed(View view) {
@@ -203,9 +217,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                     .getInt("userId", -1);
 
             if (userId == -1) {
-                runOnUiThread(() ->
-                        Toast.makeText(this, "Моля, влезте в профила си", Toast.LENGTH_SHORT).show()
-                );
+                runOnUiThread(() -> Toast.makeText(this, "Моля, влезте в профила си", Toast.LENGTH_SHORT).show());
                 return;
             }
 
@@ -222,7 +234,6 @@ public class ProductDetailActivity extends AppCompatActivity {
             });
         }).start();
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

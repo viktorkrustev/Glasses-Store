@@ -102,6 +102,17 @@
             android:backgroundTint="#3E4E58"
             android:layout_marginBottom="16dp"/>
 
+        <!-- Бутон за пробване -->
+        <Button
+            android:id="@+id/btnTryOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пробвай"
+            android:textColor="#ffffff"
+            android:backgroundTint="#A67C52"
+            android:layout_marginBottom="16dp"/>
+
+
         <!-- Рейтинг на продукта -->
         <RatingBar
             android:id="@+id/ratingBar"
