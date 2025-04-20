@@ -41,6 +41,11 @@
     <string name="choose_category">Изберете категория:</string>
     <string name="choose_manufacturer">Изберете производител:</string>
     <string name="save">Запази</string>
+    <string name="delivery_address">Адрес за доставка</string>
+    <string name="phone_number">Телефонен номер</string>
+    <string name="remove">Премахни</string>
+    <string name="product">Продукт</string>
+
 
 
 
