@@ -1,171 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- Background -->
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        tools:ignore="ExtraText">
+        android:layout_height="match_parent"
+        android:src="@drawable/background_product_details"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
 
-        <!-- Toolbar (за заглавие и стрелка за връщане назад) -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E4C89B52"
-            android:elevation="4dp">
+    <!-- Overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000" />
 
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Детайли за продукта"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:padding="16dp"/>
-        </androidx.appcompat.widget.Toolbar>
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <!-- Стрелка за връщане назад -->
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_revert"
-            android:contentDescription="Back"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="start"
-            android:onClick="onBackPressed"/>
-
-        <!-- Секция с изображение на продукта -->
-        <ImageView
-            android:id="@+id/imageViewDetail"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginBottom="16dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="Product Image" />
-
-        <!-- Име на продукта -->
-        <TextView
-            android:id="@+id/textName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Продуктово име"
-            android:textSize="22sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="8dp"/>
-
-        <!-- Цена на продукта -->
-        <TextView
-            android:id="@+id/textPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Цена: 0.00 лв"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="8dp"/>
-
-        <!-- Описание на продукта -->
-        <TextView
-            android:id="@+id/textDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Описание на продукта"
-            android:textSize="16sp"
-            android:textColor="#555555"
-            android:layout_marginBottom="8dp"/>
-
-        <!-- Производител на продукта -->
-        <TextView
-            android:id="@+id/textManufacturer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Производител: някой"
-            android:textSize="16sp"
-            android:textColor="#555555"
-            android:layout_marginBottom="16dp"/>
-        <!-- Бутон за добавяне в количката -->
-        <Button
-            android:id="@+id/btnAddToCart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Добави в количката"
-            android:textColor="#ffffff"
-            android:backgroundTint="#3E4E58"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Бутон за пробване -->
-        <Button
-            android:id="@+id/btnTryOn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Пробвай"
-            android:textColor="#ffffff"
-            android:backgroundTint="#A67C52"
-            android:layout_marginBottom="16dp"/>
-
-
-        <!-- Рейтинг на продукта -->
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:rating="5"
-            android:stepSize="1"
-            android:isIndicator="false"/>
-
-        <!-- Поле за въвеждане на рецензия -->
-        <EditText
-            android:id="@+id/editReview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Напишете вашето мнение..."
-            android:inputType="textMultiLine"
-            android:layout_marginBottom="16dp"
-            android:gravity="top|start"
-            android:lines="4"
-            android:maxLines="5"
-            android:padding="12dp"/>
-
-        <!-- Бутон за изпращане на рецензия -->
-        <Button
-            android:id="@+id/btnSubmitReview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Добави отзив"
-            android:textColor="#ffffff"
-            android:backgroundTint="#3E4E58"
-            android:layout_marginBottom="16dp"/>
-
-
-
-        <!-- Контейнер за рецензии -->
         <LinearLayout
-            android:id="@+id/reviewsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="16dp"/>
+            android:padding="24dp">
 
-        <!-- Бутон за редактиране (видим само за администратор) -->
-        <Button
-            android:id="@+id/btnEditProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Редактирай"
-            android:textColor="#ffffff"
-            android:backgroundTint="#3E4E58"
-            android:visibility="gone"
-            android:layout_marginBottom="16dp"/>
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:elevation="0dp">
 
-    </LinearLayout>
-</ScrollView>
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_details"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/rubik_glitch_regular"
+                    android:layout_gravity="center_horizontal" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Back -->
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_revert"
+                android:contentDescription="@string/back"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="start"
+                app:tint="@android:color/white" />
+
+            <!-- Product  -->
+            <ImageView
+                android:id="@+id/imageViewDetail"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_input"
+                android:contentDescription="@string/product_img" />
+
+            <!-- Content -->
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/product_name"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/rubik_glitch_regular" />
+
+            <TextView
+                android:id="@+id/textPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/product_price"
+                android:textSize="18sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/rubik_glitch_regular" />
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/product_description"
+                android:textSize="16sp"
+                android:textColor="#BBBBBB"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/textManufacturer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/product_manufacturer"
+                android:textSize="16sp"
+                android:textColor="#BBBBBB"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Buttons -->
+            <Button
+                android:id="@+id/btnAddToCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_to_cart"
+                style="@style/MonoButton.Beautiful"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnTryOn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/try_on"
+                style="@style/MonoButton.Beautiful"
+                android:backgroundTint="#A67C52"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Rating -->
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="5"
+                android:stepSize="1"
+                android:isIndicator="false"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Review -->
+            <EditText
+                android:id="@+id/editReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/write_your_opinion"
+                android:inputType="textMultiLine"
+                android:gravity="top|start"
+                android:lines="4"
+                android:maxLines="5"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_input"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/gray" />
+
+            <Button
+                android:id="@+id/btnSubmitReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_review"
+                style="@style/MonoButton.Beautiful"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Reviews -->
+            <LinearLayout
+                android:id="@+id/reviewsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Only for admin -->
+            <Button
+                android:id="@+id/btnEditProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/redact"
+                style="@style/MonoButton.Beautiful"
+                android:visibility="gone"
+                android:layout_marginBottom="32dp" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

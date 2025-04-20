@@ -48,7 +48,18 @@
     <string name="whole_price">Обща сума: 0 лв.</string>
     <string name="your_orders">Твоите поръчки ще се покажат тук</string>
     <string name="cart_list">Списък с продукти в количката</string>
-
+    <string name="product_details">Детайли за продукта</string>
+    <string name="back">Back</string>
+    <string name="product_img">Product Image</string>
+    <string name="product_name">Продуктово име</string>
+    <string name="product_price">Цена: 0.00 лв</string>
+    <string name="product_description">Описание на продукта</string>
+    <string name="product_manufacturer">Производител:</string>
+    <string name="add_to_cart">Добави в количката</string>
+    <string name="try_on">Пробвай</string>
+    <string name="write_your_opinion">Напишете вашето мнение...</string>
+    <string name="add_review">Добави отзив</string>
+    <string name="redact">Редактирай</string>
 
 
 </resources>
