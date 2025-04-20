@@ -11,7 +11,7 @@
     <string name="open_cart">Отвори количката</string>
     <string name="your_cart">Вашата количката</string>
 
-    <!-- Authentication Fields -->
+    <!-- Authentication fields -->
     <string name="name">Име:</string>
     <string name="email_hint">Имейл:</string>
     <string name="password_hint">Парола:</string>

@@ -97,7 +97,7 @@
             android:visibility="gone"
             android:layout_marginBottom="12dp" />
 
-        <!-- Sort & Filter -->
+        <!-- Sort and filter -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
