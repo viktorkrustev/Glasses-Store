@@ -61,5 +61,17 @@
     <string name="add_review">Добави отзив</string>
     <string name="redact">Редактирай</string>
 
+    <string name="our_products">Нашите продукти</string>
+    <string name="search_glasses">Търси очила...</string>
+    <string name="add_product">Добави продукт</string>
+    <string name="sort">Сортирай</string>
+    <string name="filter">Филтрирай</string>
+    <string name="back_footer">◀</string>
+    <string name="page">Страница 1</string>
+    <string name="forward">▶</string>
+    <string name="product_list">Продукти, които (може би) искаш</string>
+
+
+
 
 </resources>
