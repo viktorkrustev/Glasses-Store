@@ -45,8 +45,9 @@
     <string name="phone_number">Телефонен номер</string>
     <string name="remove">Премахни</string>
     <string name="product">Продукт</string>
-
-
+    <string name="whole_price">Обща сума: 0 лв.</string>
+    <string name="your_orders">Твоите поръчки ще се покажат тук</string>
+    <string name="cart_list">Списък с продукти в количката</string>
 
 
 
