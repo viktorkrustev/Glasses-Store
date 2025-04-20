@@ -33,6 +33,16 @@
     <string name="cart">Количка</string>
     <string name="total">Общо:</string>
     <string name="cart_history">История на поръчките</string>
+    <string name="price">Цена</string>
+    <string name="description">Описание</string>
+    <string name="shape_hint">Форма (напр. Авиатор)</string>
+    <string name="link_to_img">Линк към изображение (URL)</string>
+    <string name="prelook_of_img">Прегледай изображението</string>
+    <string name="choose_category">Изберете категория:</string>
+    <string name="choose_manufacturer">Изберете производител:</string>
+    <string name="save">Запази</string>
+
+
 
 
 </resources>
