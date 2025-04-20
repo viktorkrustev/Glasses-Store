@@ -30,8 +30,19 @@
                 android:textSize="36sp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/rubik_glitch_regular"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginBottom="24dp" />
+
+            <!-- Profile picture -->
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/profile_icon"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_background"
+                android:padding="4dp"
+                android:layout_marginBottom="16dp" />
 
             <!-- Content -->
             <TextView
@@ -39,11 +50,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@android:color/white"
                 android:layout_marginBottom="4dp"
-                android:layout_gravity="start"
-                android:gravity="start"
                 android:fontFamily="@font/rubik_glitch_regular" />
 
             <TextView
@@ -51,11 +60,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/email_hint"
-                android:textSize="19sp"
+                android:textSize="16sp"
                 android:textColor="#CCCCCC"
                 android:layout_marginBottom="24dp"
-                android:layout_gravity="start"
-                android:gravity="start"
                 android:fontFamily="@font/rubik_glitch_regular" />
 
             <!-- Separator -->
@@ -65,7 +72,7 @@
                 android:background="#FFFFFF"
                 android:layout_marginBottom="16dp" />
 
-            <!-- History -->
+            <!-- Order history -->
             <TextView
                 android:id="@+id/tvOrders"
                 android:layout_width="wrap_content"
@@ -76,7 +83,7 @@
                 android:layout_marginBottom="12dp"
                 android:fontFamily="@font/rubik_glitch_regular" />
 
-            <!-- Orders -->
+            <!-- Order list -->
             <LinearLayout
                 android:id="@+id/ordersList"
                 android:orientation="vertical"
@@ -93,15 +100,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/logout"
                 style="@style/MonoButton.Beautiful"
-                android:textSize="14sp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="370dp"
-                android:layout_marginBottom="16dp"
-                android:minWidth="120dp"
-                android:backgroundTint="#444444"
-                android:textColor="#FFFFFF" />
-
-
+                android:layout_marginTop="270dp"
+                android:layout_marginBottom="16dp"/>
         </LinearLayout>
     </FrameLayout>
 </ScrollView>
