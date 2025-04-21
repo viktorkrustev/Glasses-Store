@@ -86,6 +86,11 @@
     <string name="twitter">Twitter</string>
 
 
+    <string name="name_product">Име на продукта</string>
+    <string name="price_product">0.00 лв</string>
+
+
+
 
 
 </resources>

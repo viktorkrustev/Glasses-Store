@@ -3,49 +3,52 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:layout_margin="8dp"
-    android:background="@android:color/white"
-    android:elevation="2dp">
+    android:padding="12dp"
+    android:layout_margin="12dp"
+    android:background="@drawable/rounded_input"
+    android:elevation="4dp">
 
-    <!-- Изображение на продукта -->
+    <!-- Img -->
     <ImageView
         android:id="@+id/productImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/rounded_input" />
 
-    <!-- Име на продукта -->
+    <!-- Product -->
     <TextView
         android:id="@+id/productName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Продукт"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#212121" />
+        android:text="@string/name_product"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/rubik_glitch_regular"
+        android:layout_marginBottom="4dp" />
 
-    <!-- Цена на продукта -->
+    <!-- Price -->
     <TextView
         android:id="@+id/productPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0.00 лв"
-        android:textSize="14sp"
-        android:textColor="#F44336"
-        android:layout_marginBottom="8dp" />
+        android:text="@string/price_product"
+        android:textSize="16sp"
+        android:textColor="#E4C89B"
+        android:fontFamily="@font/rubik_glitch_regular"
+        android:layout_marginBottom="12dp" />
 
-    <!-- Бутон за добавяне в количката -->
+    <!-- Button -->
     <Button
         android:id="@+id/btnAddToCart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Добави в количката"
-        android:textColor="#FFFFFF"
-        android:background="#3E4E58"
-        android:padding="12dp"
-        android:elevation="2dp"
-        android:layout_marginTop="8dp" />
+        android:text="@string/add_to_cart"
+        style="@style/MonoButton.Beautiful"
+        android:backgroundTint="#E4C89B"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp"
+        android:minHeight="48dp" />
 
 </LinearLayout>
