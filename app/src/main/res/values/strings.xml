@@ -72,6 +72,20 @@
     <string name="product_list">Продукти, които (може би) искаш</string>
 
 
+    <string name="we_are">Ние сме NØIR</string>
+    <string name="idea">NOIR е създаден с идеята да комбинира мода, комфорт и достъпност...</string>
+    <string name="mission">Нашата мисия</string>
+    <string name="description1">Да предоставим висококачествени очила на достъпна цена...</string>
+    <string name="contact">Контакт</string>
+    <string name="address_hint">📍 София, ул. 'Проф. Георги Брадистилов' 11\n📧 contact@glassesstore.bg</string>
+    <string name="phone_num">📞 +359 888 123 456</string>
+    <string name="follow_us">Последвайте ни</string>
+    <string name="location">Локация</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="twitter">Twitter</string>
+
+
 
 
 </resources>
