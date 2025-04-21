@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background_gradient"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <!--  Dark overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000" />
+
+    <!-- Content wrapper -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Loader -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <!-- Top bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_menu_back"
+                android:contentDescription="@string/back"
+                app:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/our_products"
+                android:textColor="@android:color/white"
+                android:textSize="26sp"
+                android:fontFamily="@font/rubik_glitch_regular" />
+
+            <ImageButton
+                android:id="@+id/btnCart"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_cart"
+                android:contentDescription="@string/cart"
+                app:tint="@android:color/white" />
+        </LinearLayout>
+
+        <!-- Search field -->
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_glasses"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#AAAAAA"
+            android:inputType="text"
+            android:background="@drawable/rounded_input"
+            android:layout_marginBottom="12dp"
+            android:autofillHints="username" />
+
+        <!-- Add product (admin only) -->
+        <Button
+            android:id="@+id/btnAddProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_product"
+            style="@style/MonoButton.Beautiful"
+            android:visibility="gone"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Sort and filter -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btnSort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sort"
+                style="@style/MonoButton.Beautiful"
+                android:backgroundTint="#E4C89B"
+                android:minHeight="48dp"
+                android:minWidth="100dp" />
+
+            <Button
+                android:id="@+id/btnFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter"
+                style="@style/MonoButton.Beautiful"
+                android:backgroundTint="#E4C89B"
+                android:layout_marginStart="8dp"
+                android:minHeight="48dp"
+                android:minWidth="100dp" />
+        </LinearLayout>
+
+        <!-- Product list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewProducts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="12dp"
+            android:contentDescription="@string/product_list" />
+
+        <!-- Pagination controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <Button
+                android:id="@+id/btnPrevious"
+                style="@style/MonoButton.Beautiful"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:text="@string/back_footer"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/pageIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_glitch_regular"
+                android:text="@string/page"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/MonoButton.Beautiful"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:text="@string/forward"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

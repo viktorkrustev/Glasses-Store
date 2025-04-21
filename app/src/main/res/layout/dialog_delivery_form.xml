@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="@android:color/transparent">
+
+    <!-- Delivery address -->
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/delivery_address"
+        android:inputType="textPostalAddress"
+        android:background="@drawable/rounded_input"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/gray"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/rubik_glitch_regular"
+        android:minHeight="48dp" />
+
+    <!-- Phone number -->
+    <EditText
+        android:id="@+id/phoneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:background="@drawable/rounded_input"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/gray"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/rubik_glitch_regular"
+        android:minHeight="48dp" />
+
+</LinearLayout>
