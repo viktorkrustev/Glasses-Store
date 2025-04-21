@@ -77,7 +77,7 @@
     <string name="mission">Нашата мисия</string>
     <string name="description1">Да предоставим висококачествени очила на достъпна цена...</string>
     <string name="contact">Контакт</string>
-    <string name="address_hint">📍 София, ул. 'Проф. Георги Брадистилов' 11\n📧 contact@glassesstore.bg</string>
+    <string name="address_hint">📍 София, ул. &#39;Проф. Георги Брадистилов&#39; 11\ncontact@glassesstore.bg</string>
     <string name="phone_num">📞 +359 888 123 456</string>
     <string name="follow_us">Последвайте ни</string>
     <string name="location">Локация</string>
