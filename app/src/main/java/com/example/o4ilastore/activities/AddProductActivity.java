@@ -114,7 +114,7 @@ public class AddProductActivity extends AppCompatActivity {
         product.setCategoryId(categoryId);
         product.setManufacturerId(manufacturerId);
         product.setInCart(0);
-        product.setQuantity(0);
+        product.setQuantity(3);
 
         new Thread(() -> {
             db.glassesDao().insert(product);

@@ -143,7 +143,7 @@
         <Button
             android:id="@+id/btnNext"
             android:text="Напред ▶"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:background="#FAF3E6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

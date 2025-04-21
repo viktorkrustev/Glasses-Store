@@ -1,3 +1,54 @@
 <resources>
-    <string name="app_name">O4ilaStore</string>
+    <string name="app_name">NØIR</string>
+
+    <!-- Toolbar & Navigation -->
+    <string name="products">Продукти</string>
+    <string name="profile">Профил</string>
+    <string name="about">За нас</string>
+    <string name="logout">Изход</string>
+    <string name="login">Вход</string>
+    <string name="register">Регистрация</string>
+    <string name="open_cart">Отвори количката</string>
+    <string name="your_cart">Вашата количката</string>
+
+    <!-- Authentication Fields -->
+    <string name="name">Име:</string>
+    <string name="email_hint">Имейл:</string>
+    <string name="password_hint">Парола:</string>
+    <string name="register_text">Нямаш акаунт? Регистрирай се</string>
+    <string name="login_title">Вход</string>
+    <string name="register_se">Регистрирай се</string>
+    <string name="my_profile">Моят профил</string>
+
+    <!-- UI Text -->
+    <string name="welcome">Добре дошъл!</string>
+    <string name="find_your_style">Открий своя стил</string>
+    <string name="buy">Купи</string>
+
+    <!-- Errors -->
+    <string name="error_invalid_credentials">Невалидни данни за вход</string>
+    <string name="error_empty_fields">Попълни всички полета</string>
+
+    <!-- Cart -->
+    <string name="cart">Количка</string>
+    <string name="total">Общо:</string>
+    <string name="cart_history">История на поръчките</string>
+    <string name="price">Цена</string>
+    <string name="description">Описание</string>
+    <string name="shape_hint">Форма (напр. Авиатор)</string>
+    <string name="link_to_img">Линк към изображение (URL)</string>
+    <string name="prelook_of_img">Прегледай изображението</string>
+    <string name="choose_category">Изберете категория:</string>
+    <string name="choose_manufacturer">Изберете производител:</string>
+    <string name="save">Запази</string>
+    <string name="delivery_address">Адрес за доставка</string>
+    <string name="phone_number">Телефонен номер</string>
+    <string name="remove">Премахни</string>
+    <string name="product">Продукт</string>
+    <string name="whole_price">Обща сума: 0 лв.</string>
+    <string name="your_orders">Твоите поръчки ще се покажат тук</string>
+    <string name="cart_list">Списък с продукти в количката</string>
+
+
+
 </resources>

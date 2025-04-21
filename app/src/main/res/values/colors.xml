@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#BB86FC</color>
+
+    <!-- Main theme (Mono theme) -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#B0B0B0</color>
+    <color name="dark_gray">#2A2A2A</color>
+    <color name="light_gray">#F2F2F2</color>
+
+    <!-- Accent color (optional) -->
+    <color name="accent">#EF990D</color> <!-- Warm orange-yellow tone -->
+
+    <!-- Background and surface tones-->
+    <color name="background">#FAFAFA</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Errors red -->
+    <color name="error_red">#D32F2F</color>
+
+    <!-- samo da ne gurmi -->
     <color name="purple_500">#6200EE</color>
     <color name="purple_700">#3700B3</color>
     <color name="teal_200">#03DAC5</color>
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
+    <color name="yellow">#FFC107</color>
 
-    <!-- Добавените липсващи жълти цветове -->
-    <color name="yellow">#FFC107</color> <!-- Основен жълт -->
-    <color name="dark_yellow">#FFA000</color> <!-- Тъмен жълт за статус бара -->
+
+
 </resources>

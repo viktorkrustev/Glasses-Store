@@ -1,124 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient">
+    android:background="@drawable/background_gradient"
+    android:fillViewport="true">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="24dp">
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <!-- Custom Toolbar -->
-
-        <!-- Hero Section with Background Image -->
-
+        <!-- Toolbar -->
         <LinearLayout
-            android:layout_width="401dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:background="#3E4E58"
-            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:gravity="center_vertical"
+            android:background="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp"
+            android:elevation="4dp">
 
             <TextView
-                android:id="@+id/toolbarTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:text="NOIR"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:fontFamily="sans-serif-medium"/>
         </LinearLayout>
 
+        <!-- Hero Image -->
         <ImageView
             android:id="@+id/headerImage"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/img_1"
+            android:layout_height="200dp"
+            android:layout_marginBottom="24dp"
             android:scaleType="centerCrop"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/rounded_corners" />
+            android:src="@drawable/img_1"
+            android:background="@drawable/rounded_corners"
+            android:contentDescription="Hero image" />
 
-        <!-- Navigation Buttons -->
+        <!-- Navigation Buttons - Row 1 -->
         <LinearLayout
-            android:id="@+id/navigationLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginBottom="32dp"
-            android:weightSum="4">
+            android:layout_marginBottom="16dp"
+            android:weightSum="2">
 
             <Button
                 android:id="@+id/btnProducts"
-                style="@style/CustomButton"
-                android:background="#3E4E58"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Продукти" />
+                android:layout_marginEnd="8dp"
+                android:text="Продукти"
+                android:backgroundTint="#000000"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btnProfile"
-                android:background="#3E4E58"
-                style="@style/CustomButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Профил" />
+                android:text="Профил"
+                android:backgroundTint="#000000"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- Navigation Buttons - Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:weightSum="2">
 
             <Button
                 android:id="@+id/btnAbout"
-                android:background="#3E4E58"
-                style="@style/CustomButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="За нас" />
+                android:layout_marginEnd="8dp"
+                android:text="За нас"
+                android:backgroundTint="#000000"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btnLogout"
-                android:background="#F44336"
-                style="@style/CustomButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Изход"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:backgroundTint="#F44336"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false" />
         </LinearLayout>
 
-        <!-- Welcome Message (visible after successful login) -->
+        <!-- Welcome Message -->
         <TextView
             android:id="@+id/welcomeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Добре дошли!"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textColor="#2A2A2A"
             android:gravity="center"
             android:textStyle="bold"
             android:visibility="gone"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="24dp"
+            android:fontFamily="sans-serif-medium"/>
 
-        <!-- Auth Section (with overlay effect) -->
+        <!-- Auth Section -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginBottom="24dp">
+            android:layout_height="220dp"
+            android:layout_marginBottom="32dp">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/background"
                 android:scaleType="centerCrop"
-                android:background="@drawable/rounded_corners" />
+                android:src="@drawable/background"
+                android:background="@drawable/rounded_corners"
+                android:contentDescription="Background auth" />
 
-            <!-- Black Overlay for Contrast -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#B3BCBCBC" />
+                android:background="#80000000" />
 
-            <!-- Auth Buttons -->
             <LinearLayout
                 android:id="@+id/authLayout"
                 android:layout_width="match_parent"
@@ -126,26 +147,33 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:padding="16dp"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:layout_gravity="center">
 
                 <Button
                     android:id="@+id/btnLogin"
-                    style="@style/CustomButton"
-                    android:background="#EF990D"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Вход" />
+                    android:text="Вход"
+                    android:backgroundTint="#EF990D"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
 
                 <Button
                     android:id="@+id/btnRegister"
-                    style="@style/CustomButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#EF990D"
+                    android:layout_marginStart="16dp"
                     android:text="Регистрация"
-                    android:layout_marginStart="16dp" />
+                    android:backgroundTint="#EF990D"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
             </LinearLayout>
         </FrameLayout>
 
-        <!-- Promotional Text Between Images -->
+        <!-- Promo Text -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -155,19 +183,18 @@
             android:gravity="center"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:layout_marginTop="32dp"
             android:layout_marginBottom="24dp" />
 
         <!-- Bottom Image -->
         <ImageView
             android:id="@+id/bottomImage2"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/img"
+            android:layout_height="200dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
-            android:background="@drawable/rounded_corners" />
+            android:src="@drawable/img"
+            android:background="@drawable/rounded_corners"
+            android:contentDescription="Bottom image" />
 
     </LinearLayout>
 </ScrollView>
-
