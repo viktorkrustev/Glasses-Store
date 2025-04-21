@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Toolbar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOIR"
+                android:textColor="@android:color/white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+
+        <!-- Hero Image -->
+        <ImageView
+            android:id="@+id/headerImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_1"
+            android:background="@drawable/rounded_corners"
+            android:contentDescription="Hero image" />
+
+        <!-- Navigation Buttons - Row 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnProducts"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Продукти"
+                android:backgroundTint="#000000"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Профил"
+                android:backgroundTint="#000000"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- Navigation Buttons - Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnAbout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="За нас"
+                android:backgroundTint="#000000"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Изход"
+                android:visibility="gone"
+                android:backgroundTint="#F44336"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- Welcome Message -->
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Добре дошли!"
+            android:textSize="20sp"
+            android:textColor="#2A2A2A"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <!-- Auth Section -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginBottom="32dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/background"
+                android:background="@drawable/rounded_corners"
+                android:contentDescription="Background auth" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000" />
+
+            <LinearLayout
+                android:id="@+id/authLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="16dp"
+                android:weightSum="2"
+                android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Вход"
+                    android:backgroundTint="#EF990D"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:layout_marginStart="16dp"
+                    android:text="Регистрация"
+                    android:backgroundTint="#EF990D"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <!-- Promo Text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Открий своя стил с нашите модерни очила. Качество, комфорт и дизайн на едно място!"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Bottom Image -->
+        <ImageView
+            android:id="@+id/bottomImage2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img"
+            android:background="@drawable/rounded_corners"
+            android:contentDescription="Bottom image" />
+
+    </LinearLayout>
+</ScrollView>
