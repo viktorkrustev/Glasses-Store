@@ -89,8 +89,7 @@
     <string name="name_product">Име на продукта</string>
     <string name="price_product">0.00 лв</string>
 
-
-
-
+    <string name="about_us">За нас</string>
+    <string name="promo_text">Открий своя стил с нашите модерни очила. Качество, комфорт и дизайн на едно място!</string>
 
 </resources>
